@@ -21,7 +21,7 @@ namespace PizzaGuy
                 base(location, texture, initialFrame, velocity)
 
         {
-
+            
         }
 
         public override void Update(GameTime gameTime)
