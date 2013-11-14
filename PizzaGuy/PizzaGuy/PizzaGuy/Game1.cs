@@ -39,9 +39,9 @@ namespace PizzaGuy
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            spriteSheet = Content.Load<Texture2D>("Spritesheet");
+            spriteSheet = Content.Load<Texture2D>(@"Spritesheet");
 
-            pizzaGuy = new PizzaGuy(new Vector2(300, 300), spriteSheet, new Rectangle(36, 30, 37, 39), Vector2.Zero);
+            pizzaGuy = new PizzaGuy(new Vector2 (0, 0), spriteSheet, new Rectangle (38, 31, 32, 32), Vector2.Zero);
         }
 
         protected override void UnloadContent()
@@ -51,13 +51,6 @@ namespace PizzaGuy
 
         protected override void Update(GameTime gameTime)
         {
-            KeyboardState kb = Keyboard.GetState();
-
-            if (kb.IsKeyDown(Keys.Right))
-            {
-                Velocity = new Vector2(32, 0);
-            }
-
             pizzaGuy.Update(gameTime);
             base.Update(gameTime);
         }
@@ -70,9 +63,11 @@ namespace PizzaGuy
         {
             spriteBatch.Begin();
 
+            pizzaGuy.Draw(spriteBatch);
+
             spriteBatch.End();
 
-            base.Draw(gameTime);
+            base.Draw(gameTime); 
         }
     }
 }
