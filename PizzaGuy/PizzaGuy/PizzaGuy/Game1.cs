@@ -42,6 +42,9 @@ namespace PizzaGuy
             spriteSheet = Content.Load<Texture2D>(@"Spritesheet");
 
             pizzaGuy = new PizzaGuy(new Vector2 (0, 0), spriteSheet, new Rectangle (38, 31, 32, 32), Vector2.Zero);
+
+            pizzaGuy.AddFrame(new Rectangle(132, 29, 32, 32));
+            pizzaGuy.AddFrame(new Rectangle(156, 155, 32, 32));
         }
 
         protected override void UnloadContent()

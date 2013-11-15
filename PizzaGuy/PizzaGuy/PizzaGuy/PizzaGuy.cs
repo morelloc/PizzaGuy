@@ -31,25 +31,25 @@ namespace PizzaGuy
             if (kb.IsKeyDown(Keys.Right))
             {
                 Rotation = 0;
-                Velocity = new Vector2(32, 0);
+                Velocity = new Vector2(50, 0);
             }
 
             if (kb.IsKeyDown(Keys.Left))
             {
                 Rotation = -MathHelper.Pi;
-                Velocity = new Vector2(-32, 0);
+                Velocity = new Vector2(-50, 0);
             }
 
             if (kb.IsKeyDown(Keys.Up))
             {
                 Rotation = -MathHelper.PiOver2;
-                Velocity = new Vector2(0, -32);
+                Velocity = new Vector2(0, -50);
             }
 
             if (kb.IsKeyDown(Keys.Down))
             {
                 Rotation = MathHelper.PiOver2;
-                Velocity = new Vector2(0, 32);
+                Velocity = new Vector2(0, 50);
             }
 
  	         base.Update(gameTime);
