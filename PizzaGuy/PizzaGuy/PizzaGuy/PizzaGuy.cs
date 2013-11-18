@@ -11,8 +11,20 @@ using Microsoft.Xna.Framework.Media;
 
 namespace PizzaGuy
 {
+    enum Direction
+    {
+        UP,
+        DOWN,
+        LEFT,
+        RIGHT
+    }
+
     class PizzaGuy : Sprite
     {
+        int Speed = 64;
+        Direction direction;
+        Vector2 target;
+
         public PizzaGuy(
             Vector2 location,
             Texture2D texture,
@@ -21,7 +33,36 @@ namespace PizzaGuy
                 base(location, texture, initialFrame, velocity)
 
         {
-            
+            direction = Direction.RIGHT;
+            target = location;
+            UpdateDirection();
+        }
+
+        public void UpdateDirection()
+        {
+            switch (direction)
+            {
+                case Direction.RIGHT:
+                    Velocity = new Vector2(Speed, 0);
+                    Rotation = 0;
+                    target = location + new Vector2(Speed, 0);
+                    break;
+                case Direction.LEFT:
+                    Velocity = new Vector2(-Speed, 0);
+                    Rotation = MathHelper.Pi;
+                    target = location + new Vector2(Speed, 0);
+                    break;
+                case Direction.UP:
+                    Velocity = new Vector2(0, Speed);
+                    Rotation = MathHelper.PiOver2;
+                    target = location + new Vector2(0, Speed);
+                    break;
+                case Direction.DOWN:
+                    Velocity = new Vector2(0, -Speed);
+                    Rotation = -MathHelper.PiOver2;
+                    target = location + new Vector2(0, -Speed);
+                    break;
+            }
         }
 
         public override void Update(GameTime gameTime)
